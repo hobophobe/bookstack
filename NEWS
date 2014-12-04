@@ -1,0 +1,72 @@
+=============
+Version 0.8.0
+=============
+
+  * Reworked to be a restartless add-on (including minor fixes).
+  * Moved preferences to add-on page.
+
+=============
+Version 0.7.5
+=============
+
+  * Fix sidebar context menu commands not enabling/disabling correctly.
+
+=============
+Version 0.7.4
+=============
+
+  * Fix preference lookup bug (caused major loss of functionality).
+
+=============
+Version 0.7.3
+=============
+
+  * Update for compatibility.
+  * Fix for getting livemark service.
+  * Add reload menuitem for livemarks.
+  * Minor fixes.
+
+=============
+Version 0.7.1
+=============
+
+  * Stop using GUID to track the bookstack folder.  Hopefully this will come
+  come back, as without it Bookstack doesn't play as nicely with Sync and other
+  similar services.
+  * Update Livemark-aware functions to use the new asynchronous service.
+  * Add creation of Bookmarks, Folders, and Separators to sidebar context.
+  * Rework "Add all tabs to stack" to allow an in-folder add via Shift key.
+
+=============
+Version 0.7.0
+=============
+
+  * Dropped support for Fx<4.
+  * Reorder context menu to match bookmarks sidebar's more closely.
+  * Made unuseful context menu items disabled rather than hidden.
+  * Use a real tree for sidebar.
+  * Add cut and paste abilities.
+  * Removed per-button mouse settings and updated preferences dialog.
+  * Eliminate trash folder to allow migration to tree-based sidebar.
+  * Make opened item information stick to the tab for retrieval if cancelled.
+    This allows discovering removed item in case of user-cancelled loading.
+  * Added popup notifications with CSS animation as feedback for adding items.
+    They simply show the animated anchor icon, no actual popups, so no item
+    property editing occurs via the notifications.
+  * Added shift variants for adding to stack to allow immediate editing:
+    Shift+[ctrl]+middle-click on a link
+    Shift+click on menu items (tab menu, content context menu)
+  * Made pop (Alt+C) move the item to the bottom if it's not removed.
+    This makes that action useful when the Stack is set not to remove items.
+  * Fixed erroneous focusing of sidebar on application blur.
+  * Fixed "Add this page" item in content area context menu when it was already
+    in the stack.
+  * Linux: Added icons to context menu items (for sidebar and content area).
+    I don't believe the other platforms use icons in those spots, but if they
+    do I will add them there too.
+  * Use several more of the browser's own strings for localization.
+  * Made removing the current page from the stack take place in a batch.
+  * Migrated to using showBookmarkDialog for editing bookmarks.
+  * Cleaned this document and renamed it to NEWS.
+  * Removed .jar packing for chrome.
+

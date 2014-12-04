@@ -1,0 +1,36 @@
+<!-- Sidebar context menu -->
+<!ENTITY bookstack-side-menu.newtab         "Open in New Tab">
+<!ENTITY bookstack-side-menu.newtab.ak      "N">
+<!ENTITY bookstack-side-menu.thistab        "Open in This Tab">
+<!ENTITY bookstack-side-menu.thistab.ak     "O">
+<!ENTITY bookstack-side-menu.move           "Move to">
+<!ENTITY bookstack-side-menu.move.ak        "M">
+
+<!ENTITY bookstack.clear.label       "Clear Stack">
+
+<!ENTITY bookstack.filters           "Select filters">
+<!ENTITY bookstack.filter.select     "Select Stack">
+<!ENTITY bookstack.filter.search     "Search Stack">
+<!ENTITY bookstack.filter.sort       "Sort Stack">
+
+<!-- Searchbox -->
+<!ENTITY bookstack.search            "Search in This Stack">
+<!ENTITY bookstack.search.empty      "Search...">
+
+<!-- Sortbox -->
+<!ENTITY bookstack.sort.label        "Sort Direction">
+
+<!-- Settings -->
+<!ENTITY settings.Focus.label        "Keep focus on Sidebar on view">
+<!ENTITY settings.cclr.label         "Confirm before clearing Stack">
+<!ENTITY settings.close.label        "Close Current Page on Add">
+<!ENTITY settings.menuitems.content  "Link context menu &gt; Add Link to Stack">
+<!ENTITY settings.menuitems.tools    "Tools menu &gt; Bookstack">
+<!ENTITY settings.menuitems.current  "Content area context menu &gt; Add This Page to Stack">
+<!ENTITY settings.menuitems.rcurrent "Content area context menu &gt; Remove This Page from Stack">
+<!ENTITY settings.RItems.label        "Remove on view">
+<!ENTITY settings.cexit.label         "Clear Stack on exit">
+<!ENTITY settings.midClick.label      "Middle click to add item">
+<!ENTITY settings.mid.notify          "Show notifications">
+<!ENTITY settings.modKey.label        "Requires ctrl/meta key">
+

@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+ -   Version: GPL 2.0
+ -
+ - Bookstack extension: a queue implementation for bookmarks.
+ - Copyright (C) 2007-2014  Adam Dane
+ -
+ - This program is free software; you can redistribute it and/or
+ - modify it under the terms of the GNU General Public License
+ - as published by the Free Software Foundation; either version 2
+ - of the License, or (at your option) any later version.
+ -
+ - This program is distributed in the hope that it will be useful,
+ - but WITHOUT ANY WARRANTY; without even the implied warranty of
+ - MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ - GNU General Public License for more details.
+ -
+ - You should have received a copy of the GNU General Public License
+ - along with this program; if not, write to the Free Software Foundation, Inc.,
+ - 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ -
+ - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/content/bookmarks/bookmarks.css"
+                 type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/places/places.css"
+                 type="text/css"?>
+<?xml-stylesheet href="chrome://browser/content/places/places.css"
+                 type="text/css"?>
+<?xml-stylesheet href="chrome://bookstack/skin/bookstack.css" type="text/css"?>
+<?xml-stylesheet href="chrome://bookstack-os/skin/bookstack-sidebar.css"
+                 type="text/css"?>
+<?xul-overlay href="chrome://bookstack/content/bookstack-FolderSelect.xul"?>
+<?xul-overlay href="chrome://browser/content/places/placesOverlay.xul"?>
+<!DOCTYPE page [
+  <!ENTITY % bookstackDTD SYSTEM "chrome://bookstack/locale/bookstack.dtd">
+  %bookstackDTD;
+  <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
+  %browserDTD;
+  <!ENTITY % placesDTD SYSTEM "chrome://browser/locale/places/places.dtd">
+  %placesDTD;
+]>
+
+<page id="bookstackPanel"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      onload="bookstackSidebar.init();"
+      onunload="bookstackSidebar.done();">
+  <script type="application/x-javascript"
+          src="chrome://bookstack/content/bookstack-Sidebar.js"/>
+  <tooltip id="bhTooltip"/>
+  <commandset id="side-commands"
+              commandupdater="true"
+              events="focus,sort,places"
+              oncommandupdate="bookstackSidebar.updateCommands();">
+    <command id="stackwrap_placesCmd_copy"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_copy');"/>
+    <command id="stackwrap_placesCmd_cut"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_cut');"/>
+    <command id="stackwrap_placesCmd_paste"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_paste');"/>
+    <command id="stackwrap_placesCmd_delete"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_delete');"/>
+    <command id="stackwrap_placesCmd_reload"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_reload');"/>
+    <command id="stackwrap_placesCmd_show:info"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_show:info');"/>
+    <command id="stackwrap_placesCmd_add_bookmark"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_new:bookmark')"/>
+    <command id="stackwrap_placesCmd_add_folder"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_new:folder')"/>
+    <command id="stackwrap_placesCmd_add_separator"
+             oncommand="bookstackSidebar.wrapCmd('placesCmd_new:separator')"/>
+  </commandset>
+  <menupopup id="side-item-pop"
+             onpopupshowing="bookstackSidebar.fixupSidePop(event);">
+    <menuitem id="side-open-this"
+              label="&bookstack-side-menu.thistab;"
+              accesskey="&bookstack-side-menu.thistab.ak;"
+              oncommand="bookstackSidebar.menuActivateItem(event, 0);"/>
+    <menuitem id="side-open-new"
+              label="&bookstack-side-menu.newtab;"
+              accesskey="&bookstack-side-menu.newtab.ak;"
+              oncommand="bookstackSidebar.menuActivateItem(event, 1);"/>
+    <menuseparator id="side-open-separator"/>
+    <menuitem id="side-add-bookmark"
+              label="&cmd.new_bookmark.label;"
+              accesskey="&cmd.new_bookmark.accesskey;"
+              command="stackwrap_placesCmd_add_bookmark"/>
+    <menuitem id="side-add-folder"
+              label="&cmd.new_folder.label;"
+              accesskey="&cmd.new_folder.accesskey;"
+              command="stackwrap_placesCmd_add_folder"/>
+    <menuitem id="side-add-separator"
+              label="&cmd.new_separator.label;"
+              accesskey="&cmd.new_separator.accesskey;"
+              command="stackwrap_placesCmd_add_separator"/>
+    <menuseparator id="side-new-separator"/>
+    <menu id="side-move-menu-root"
+          accesskey="&bookstack-side-menu.move.ak;"
+          label="&bookstack-side-menu.move;">
+      <menupopup
+        onpopupshowing="bookstackSidebar.fillFolderMenu(event);"/>
+    </menu>
+    <menuitem id="side-details-cut"
+              accesskey="&cutCmd.accesskey;"
+              label="&cutCmd.label;"
+              command="stackwrap_placesCmd_cut"/>
+    <menuitem id="side-details-copy"
+              accesskey="&copyCmd.accesskey;"
+              label="&copyCmd.label;"
+              command="stackwrap_placesCmd_copy"/>
+    <menuitem id="side-details-paste"
+              accesskey="&pasteCmd.accesskey;"
+              label="&pasteCmd.label;"
+              command="stackwrap_placesCmd_paste"/>
+    <menuseparator id="side-purge-separator"/>
+    <menuitem id="side-purger"
+              accesskey="&deleteCmd.accesskey;"
+              label="&deleteCmd.label;"
+              command="stackwrap_placesCmd_delete"/>
+    <menuseparator id="side-edit-separator"/>
+    <menuitem id="side-reload"
+              accesskey="&cmd.reloadLivebookmark.accesskey;"
+              label="&cmd.reloadLivebookmark.label;"
+              command="stackwrap_placesCmd_reload"/>
+    <menuitem id="side-details-edit"
+              accesskey="&cmd.properties.accesskey;"
+              label="&cmd.properties.label;"
+              command="stackwrap_placesCmd_show:info"/>
+  </menupopup>
+  <grid flex="1">
+    <columns>
+      <column flex="1"/>
+    </columns>
+    <rows>
+      <row>
+        <toolbox>
+          <toolbar id="stack-side-toolbar">
+            <toolbarbutton id="citems"
+                           tooltiptext="&bookstack.clear.label;"
+                           oncommand="bookstack.stack.onClrStack(true);"/>
+            <toolbarbutton id="cexit"
+                           type="checkbox"
+                           tooltiptext="&settings.cexit.label;"
+                           oncommand="bookstack.stack.toggleCExit();"/>
+            <toolbarbutton id="ritems"
+                           type="checkbox"
+                           tooltiptext="&settings.RItems.label;"
+                           oncommand="bookstack.stack.toggleRItems();"/>
+            <toolbarbutton id="middl"
+                           type="checkbox"
+                           tooltiptext="&settings.midClick.label;"
+                           oncommand="bookstack.stack.toggleMiddl();"/>
+            <toolbarbutton id="stack-filters"
+                           type="menu"
+                           tooltiptext="&bookstack.filters;">
+              <menupopup>
+                <menuitem id="stack-filter-select-item"
+                          type="checkbox"
+                          label="&bookstack.filter.select;"
+                          oncommand="bookstackSidebar.toggleFilter(0);"/>
+                <menuitem id="stack-filter-search-item"
+                          type="checkbox"
+                          label="&bookstack.filter.search;"
+                          oncommand="bookstackSidebar.toggleFilter(1);"/>
+                <menuitem id="stack-filter-sort-item"
+                          type="checkbox"
+                          label="&bookstack.filter.sort;"
+                          oncommand="bookstackSidebar.toggleFilter(2);"/>
+              </menupopup>
+            </toolbarbutton>
+          </toolbar>
+        </toolbox>
+      </row>
+      <row>
+        <vbox id="stack-folder-select" hidden="false"/>
+      </row>
+      <row>
+        <hbox id="stack-searchbox" hidden="false" flex="0">
+          <textbox id="stack-searchbox-text"
+                   flex="1"
+                   aria-controls="bookstack-view"
+                   emptytext="&bookstack.search.empty;"
+                   placeholder="&bookstack.search.empty;"
+                   multiline="false"
+                   newlines="strip"
+                   oncommand="bookstackSidebar.updateTreePlace();"
+                   type="search"
+                   label="&bookstack.search;"/>
+        </hbox>
+      </row>
+      <row>
+        <hbox id="stack-sort" hidden="false" flex="1">
+          <menulist id="stack-sort-choice"
+                    flex="1"
+                    aria-controls="bookstack-view"
+                    oncommand="bookstackSidebar.updateTreePlace();"
+                    sizetopopup="none"
+                    tooltiptext="&view.sort.label;">
+            <menupopup>
+              <menuitem label="&col.name.label;"
+                        value="1"/>
+              <menuitem label="&col.url.label;"
+                        value="5"/>
+              <menuitem label="&col.dateadded.label;"
+                        value="11"/>
+            </menupopup>
+          </menulist>
+          <menulist id="stack-order"
+                    flex="1"
+                    aria-controls="bookstack-view"
+                    oncommand="bookstackSidebar.updateTreePlace();"
+                    sizetopopup="none"
+                    tooltiptext="&bookstack.sort.label;">
+            <menupopup>
+              <menuitem label="&view.unsorted.label;"
+                        value="0"/>
+              <menuitem label="&view.sortAscending.label;"
+                        value="1"/>
+              <menuitem label="&view.sortDescending.label;"
+                        value="2"/>
+            </menupopup>
+          </menulist>
+        </hbox>
+      </row>
+      <row flex="5">
+        <tree id="bookstack-tree-view"
+              hidecolumnpicker="true"
+              flatList="true"
+              type="places"
+              flex="1"
+              context="side-item-pop"
+              onclick="bookstackSidebar.activateTreeItem(event);"
+              onkeypress="bookstackSidebar.sideTreeKey(event);"
+              onmousemove="bookstackSidebar.hoverItem(event);"
+              onmouseout="bookstackSidebar.setMouseoverURL('');"
+              hidehscroll="true">
+          <treecols>
+            <treecol id="title"
+                     ordinal="1"
+                     flex="1"
+                     primary="true"
+                     hideheader="true"/>
+          </treecols>
+          <treechildren id="bookstack-tree-view-children"
+                        class="sidebar-placesTreechildren"
+                        view="bookstack-tree-view"
+                        tooltip="bhTooltip"/>
+        </tree>
+      </row>
+      <row>
+        <statusbar id="stack-statusbar">
+          <statusbarpanel id="stack-status" label="" flex="1"/>
+        </statusbar>
+      </row>
+    </rows>
+  </grid>
+</page>

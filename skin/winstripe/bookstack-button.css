@@ -1,0 +1,18 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+@-moz-document url(chrome://global/content/customizeToolbar.xul),
+               url(chrome://browser/content/browser.xul)
+{
+
+  #bookstack-side-button,
+  window:not([active="true"]) #bookstack-side-button,
+  toolbar[iconsize="small"] #bookstack-side-button {
+    list-style-image: url("chrome://bookstack-os/skin/bookstack-button.png");
+  }
+  #bookstack-side-button > .toolbarbutton-icon {
+    margin: 0px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+}

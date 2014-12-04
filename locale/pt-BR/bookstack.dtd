@@ -1,0 +1,31 @@
+<!ENTITY bookstack-side-menu.newtab "Abrir em nova aba">
+<!ENTITY bookstack-side-menu.newtab.ak "N">
+<!ENTITY bookstack-side-menu.thistab "Abrir nesta aba">
+<!ENTITY bookstack-side-menu.thistab.ak "E">
+<!ENTITY bookstack-side-menu.move "Mover para">
+<!ENTITY bookstack-side-menu.move.ak "M">
+
+<!ENTITY bookstack.clear.label "Limpar pilha">
+
+<!ENTITY bookstack.filters "Selecionar filtros">
+<!ENTITY bookstack.filter.select "Selecionar pilha">
+<!ENTITY bookstack.filter.search "Pesquisar pilha">
+<!ENTITY bookstack.filter.sort "Organizar pilha">
+<!ENTITY bookstack.search "Pesquisar nesta pilha">
+<!ENTITY bookstack.search.empty "Buscar…">
+<!ENTITY bookstack.sort.label "Organizar direção">
+
+<!ENTITY settings.Focus.label "Manter foco na exibição da barra lateral">
+<!ENTITY settings.cclr.label "Confirmar antes de limpar pilha">
+<!ENTITY settings.close.label "Fechar página atual ao adicionar">
+<!ENTITY settings.menuitems.content "Menu de contexto Link &gt; Adicionar link para pilha">
+<!ENTITY settings.menuitems.tools "Menu Ferramentas &gt; Bookstack">
+<!ENTITY settings.menuitems.current "Menu de contexto Conteúdo &gt; Adicionar esta página a pilha">
+<!ENTITY settings.menuitems.rcurrent "Menu de contexto Conteúdo &gt; Remover esta página da pilha">
+
+<!ENTITY settings.RItems.label "Remover na visualização">
+<!ENTITY settings.cexit.label "Limpar pilha ao sair">
+<!ENTITY settings.midClick.label "Botão do meio para adicionar item">
+<!ENTITY settings.mid.notify "Exibir notificações">
+<!ENTITY settings.modKey.label "Necessita tecla Ctrl/Meta">
+

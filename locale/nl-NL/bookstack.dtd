@@ -1,0 +1,31 @@
+<!ENTITY bookstack-side-menu.newtab "In nieuw tabblad openen">
+<!ENTITY bookstack-side-menu.newtab.ak "N">
+<!ENTITY bookstack-side-menu.thistab "In dit tabblad openen">
+<!ENTITY bookstack-side-menu.thistab.ak "O">
+<!ENTITY bookstack-side-menu.move "Verplaatsen naar">
+<!ENTITY bookstack-side-menu.move.ak "V">
+
+<!ENTITY bookstack.clear.label "Stapel opruimen">
+
+<!ENTITY bookstack.filters "Filters selecteren">
+<!ENTITY bookstack.filter.select "Stapel selecteren">
+<!ENTITY bookstack.filter.search "Stapel doorzoeken">
+<!ENTITY bookstack.filter.sort "Stapel sorteren">
+<!ENTITY bookstack.search "In deze stapel zoeken">
+<!ENTITY bookstack.search.empty "Zoeken...">
+<!ENTITY bookstack.sort.label "Sorteervolgorde">
+
+<!ENTITY settings.Focus.label "Focus op zijbalk houden bij bekijken">
+<!ENTITY settings.cclr.label "Bevestigen voor wissen stapel">
+<!ENTITY settings.close.label "Huidige pagina sluiten bij toevoegen">
+<!ENTITY settings.menuitems.content "Koppelingscontextmenu &gt; Koppeling aan stapel toevoegen">
+<!ENTITY settings.menuitems.tools "Menu Extra &gt; Bookstack">
+<!ENTITY settings.menuitems.current "Standaard contextmenu &gt; Deze pagina aan stapel toevoegen">
+<!ENTITY settings.menuitems.rcurrent "Standaard contextmenu &gt; Deze pagina van stapel verwijderen">
+
+<!ENTITY settings.RItems.label "Verwijderen bij bekijken">
+<!ENTITY settings.cexit.label "Stapel wissen bij afsluiten">
+<!ENTITY settings.midClick.label "Middelklikken om onderdeel toe te voegen">
+<!ENTITY settings.mid.notify "Berichten weergeven">
+<!ENTITY settings.modKey.label "CTRL/Meta-toets vereisen">
+

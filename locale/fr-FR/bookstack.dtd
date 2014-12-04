@@ -1,0 +1,31 @@
+<!ENTITY bookstack-side-menu.newtab "Ouvrir dans un nouvel onglet">
+<!ENTITY bookstack-side-menu.newtab.ak "N">
+<!ENTITY bookstack-side-menu.thistab "Ouvrir dans cet onglet">
+<!ENTITY bookstack-side-menu.thistab.ak "C">
+<!ENTITY bookstack-side-menu.move "Déplacer vers">
+<!ENTITY bookstack-side-menu.move.ak "v">
+
+<!ENTITY bookstack.clear.label "Supprimer la pile">
+
+<!ENTITY bookstack.filters "Sélectionner des filtres">
+<!ENTITY bookstack.filter.select "Sélectionner une pile">
+<!ENTITY bookstack.filter.search "Rechercher une pile">
+<!ENTITY bookstack.filter.sort "Trier la pile">
+<!ENTITY bookstack.search "Rechercher dans une pile">
+<!ENTITY bookstack.search.empty "Recherche…">
+<!ENTITY bookstack.sort.label "Ordre du tri">
+
+<!ENTITY settings.Focus.label "Toujours afficher le panneau latéral au premier plan">
+<!ENTITY settings.cclr.label "Demander confirmation avant de supprimer la pile">
+<!ENTITY settings.close.label "Fermer cette page après l&apos;avoir ajoutée">
+<!ENTITY settings.menuitems.content "Lien du menu contextuel vers &apos;Ajouter ce lien à la pile&apos;">
+<!ENTITY settings.menuitems.tools "Menu Outils &gt; Bookstack">
+<!ENTITY settings.menuitems.current "Menu contextuel sur un contenu &gt; Ajouter cette page à la pile">
+<!ENTITY settings.menuitems.rcurrent "Menu contextuel sur un contenu &gt; Supprimer cette page de la pile">
+
+<!ENTITY settings.RItems.label "Supprimer à l&apos;affichage">
+<!ENTITY settings.cexit.label "Supprimer la pile à la fermeture">
+<!ENTITY settings.midClick.label "Clic milieu (molette) pour ajouter un élément">
+<!ENTITY settings.mid.notify "Afficher les notifications">
+<!ENTITY settings.modKey.label "Nécessite la touche Ctrl/meta">
+

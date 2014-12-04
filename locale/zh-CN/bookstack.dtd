@@ -1,0 +1,31 @@
+<!ENTITY bookstack-side-menu.newtab "在新标签页打开">
+<!ENTITY bookstack-side-menu.newtab.ak "N">
+<!ENTITY bookstack-side-menu.thistab "在当前标签页打开">
+<!ENTITY bookstack-side-menu.thistab.ak "O">
+<!ENTITY bookstack-side-menu.move "移动到">
+<!ENTITY bookstack-side-menu.move.ak "M">
+
+<!ENTITY bookstack.clear.label "清除柜子">
+
+<!ENTITY bookstack.filters "选择过滤器">
+<!ENTITY bookstack.filter.select "选择柜子">
+<!ENTITY bookstack.filter.search "搜索柜子">
+<!ENTITY bookstack.filter.sort "排序柜子">
+<!ENTITY bookstack.search "在此柜子搜索">
+<!ENTITY bookstack.search.empty "搜索...">
+<!ENTITY bookstack.sort.label "排序方向">
+
+<!ENTITY settings.Focus.label "保持焦点在侧边栏查看">
+<!ENTITY settings.cclr.label "在清除柜子前确认">
+<!ENTITY settings.close.label "在添加当前标签页后关闭">
+<!ENTITY settings.menuitems.content "链接右键菜单 -&gt; 添加链接到柜子">
+<!ENTITY settings.menuitems.tools "工具菜单 -&gt; Bookstack">
+<!ENTITY settings.menuitems.current "内容区右键菜单 -&gt; 添加当前标签页到柜子">
+<!ENTITY settings.menuitems.rcurrent "内容区右键菜单 -&gt; 在柜子里删除当前标签页">
+
+<!ENTITY settings.RItems.label "删除视图">
+<!ENTITY settings.cexit.label "清除柜子退出">
+<!ENTITY settings.midClick.label "中键点击到添加项目">
+<!ENTITY settings.mid.notify "显示通知">
+<!ENTITY settings.modKey.label "需要 Ctrl/Meta 键">
+

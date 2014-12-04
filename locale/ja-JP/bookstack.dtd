@@ -1,0 +1,31 @@
+<!ENTITY bookstack-side-menu.newtab "新しいタブ⁧開く">
+<!ENTITY bookstack-side-menu.newtab.ak "N">
+<!ENTITY bookstack-side-menu.thistab "このタブで開く">
+<!ENTITY bookstack-side-menu.thistab.ak "O">
+<!ENTITY bookstack-side-menu.move "移動先">
+<!ENTITY bookstack-side-menu.move.ak "M">
+
+<!ENTITY bookstack.clear.label "積読を一掃する">
+
+<!ENTITY bookstack.filters "フィルタを選択">
+<!ENTITY bookstack.filter.select "積読を選択">
+<!ENTITY bookstack.filter.search "積読を検索">
+<!ENTITY bookstack.filter.sort "積読を並び替え">
+<!ENTITY bookstack.search "この積読の中を検索">
+<!ENTITY bookstack.search.empty "検索...">
+<!ENTITY bookstack.sort.label "並び順">
+
+<!ENTITY settings.Focus.label "見る際はサイドバーにフォーカスしておく">
+<!ENTITY settings.cclr.label "積読を一掃する前に確認する">
+<!ENTITY settings.close.label "追加時に現在のページを閉じる">
+<!ENTITY settings.menuitems.content "リンクコンテキストメニュー → 積読にリンクを追加">
+<!ENTITY settings.menuitems.tools "ツールメニュー → Bookstack">
+<!ENTITY settings.menuitems.current "コンテンツ領域コンテキストメニュー → 積読にこのページを追加">
+<!ENTITY settings.menuitems.rcurrent "コンテンツ領域コンテキストメニュー → 積読からこのページを除去">
+
+<!ENTITY settings.RItems.label "見る際に除去する">
+<!ENTITY settings.cexit.label "終了時に積読を一掃する">
+<!ENTITY settings.midClick.label "中クリックで項目を追加する">
+<!ENTITY settings.mid.notify "通知を">
+<!ENTITY settings.modKey.label "Ctrl/Meta キーを要する">
+

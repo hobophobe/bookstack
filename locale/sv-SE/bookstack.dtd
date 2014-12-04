@@ -1,0 +1,31 @@
+<!ENTITY bookstack-side-menu.newtab "Öppna i ny flik">
+<!ENTITY bookstack-side-menu.newtab.ak "N">
+<!ENTITY bookstack-side-menu.thistab "Öppna i denna flik">
+<!ENTITY bookstack-side-menu.thistab.ak "D">
+<!ENTITY bookstack-side-menu.move "Flytta till">
+<!ENTITY bookstack-side-menu.move.ak "F">
+
+<!ENTITY bookstack.clear.label "Rensa boktrave">
+
+<!ENTITY bookstack.filters "Välj filter">
+<!ENTITY bookstack.filter.select "Välj boktrave">
+<!ENTITY bookstack.filter.search "Sök i boktrave">
+<!ENTITY bookstack.filter.sort "Sortera boktrave">
+<!ENTITY bookstack.search "Sök i denna boktrave">
+<!ENTITY bookstack.search.empty "Sök...">
+<!ENTITY bookstack.sort.label "Sorteringsriktning">
+
+<!ENTITY settings.Focus.label "Behåll fokus på sidopanelen vid visning">
+<!ENTITY settings.cclr.label "Bekräfta innan boktrave rensas">
+<!ENTITY settings.close.label "Stäng aktuell sida när den läggs till">
+<!ENTITY settings.menuitems.content "Länksnabbmenyn &gt; Lägg till länk i boktrave">
+<!ENTITY settings.menuitems.tools "Verktyg-menyn &gt; Boktravar">
+<!ENTITY settings.menuitems.current "Innehållsområdets snabbmeny &gt; Lägg till denna sida i boktrave">
+<!ENTITY settings.menuitems.rcurrent "Innehållsområdets snabbmeny &gt; Ta bort denna sida från boktrave">
+
+<!ENTITY settings.RItems.label "Ta bort vid visning">
+<!ENTITY settings.cexit.label "Rensa boktrave vid programavslut">
+<!ENTITY settings.midClick.label "Mittenklick för att lägga till objekt">
+<!ENTITY settings.mid.notify "Visa aviseringar">
+<!ENTITY settings.modKey.label "Kräver Ctrl/Meta som låstangent">
+

@@ -1,0 +1,26 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+@-moz-document url(chrome://global/content/customizeToolbar.xul),
+               url(chrome://browser/content/browser.xul)
+{
+
+  #bookstack-side-button {
+    list-style-image: url("chrome://bookstack-os/skin/bookstack-button-24.png");
+  }
+
+  toolbar[iconsize="small"] #bookstack-side-button {
+    list-style-image: url("chrome://bookstack-os/skin/bookstack-button-16.png");
+  }
+
+  #contentAreaContextMenu > #context-bookstack-add {
+    list-style-image: url("chrome://bookstack-os/skin/bookstack-button-16.png");
+  }
+
+  #contentAreaContextMenu > #context-bookstack-current {
+    list-style-image: url("chrome://browser/skin/places/pageStarred.png");
+  }
+
+  #contentAreaContextMenu > #context-bookstack-rcurrent {
+    list-style-image: url("chrome://browser/skin/places/starPage.png");
+  }
+}

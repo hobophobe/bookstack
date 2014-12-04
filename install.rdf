@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>{3dba5b22-2e1a-11dc-8314-0800200c9a66}</em:id>
+    <em:version>0.8.0</em:version>
+    <em:type>2</em:type>
+
+    <em:name>Bookstack</em:name>
+    <em:description>A simple sidebar to collect URLs for later browsing.</em:description>
+    <em:homepageURL>http://code.google.com/p/bookstack/</em:homepageURL>
+
+    <em:optionsURL>chrome://bookstack/content/bookstack-Settings.xul</em:optionsURL>
+    <em:optionsType>2</em:optionsType>
+    <em:iconURL>chrome://bookstack-img/skin/bookstack-icon.png</em:iconURL>
+    <em:icon64URL>chrome://bookstack/skin/bookstack-icon-64.png</em:icon64URL>
+    <em:unpack>false</em:unpack>
+    <em:bootstrap>true</em:bootstrap>
+<!--
+    FIXME enable when everything works.
+    Currently that's just the middle-click listener AFAIK
+
+    <em:multiprocessCompatible>true</em:multiprocessCompatible> -->
+
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- firefox -->
+        <em:minVersion>33.0a1</em:minVersion>
+        <em:maxVersion>35.0a1</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <em:creator>Adam Dane</em:creator>
+    <em:translator>Tuxman (de-DE)</em:translator>
+    <em:translator>Goofy (fr-FR)</em:translator>
+    <em:translator>drry (ja-JP)</em:translator>
+    <em:translator>Markh (nl-NL)</em:translator>
+    <em:translator>Alberto Eidh (pt-BR)</em:translator>
+    <em:translator>yfdyh000 (zh-CN)</em:translator>
+    <em:translator>Lakrits (sv-SE)</em:translator>
+
+    <em:localized>
+      <Description>
+        <em:locale>de-DE</em:locale>
+        <em:name>Bookstack</em:name>
+        <em:description>Eine einfache Stapelstruktur, um URLs zu sammeln.</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+        <em:locale>fr-FR</em:locale>
+        <em:name>Bookstack</em:name>
+        <em:description>Une simple structure en pile pour récolter les adresses URL à parcourir plus tard.</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+        <em:locale>ja-JP</em:locale>
+        <em:name>Bookstack</em:name>
+        <em:description>\u3042\u3068\u3067\u8AAD\u3080 URL \u3092\u53CE\u96C6\u3059\u308B\u5358\u7D14\u306A\u30B5\u30A4\u30C9\u30D0\u30FC\u3067\u3059\u3002</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+        <em:locale>nl-NL</em:locale>
+        <em:name>Bookstack</em:name>
+        <em:description>Een eenvoudige zijbalk om URL's te verzamelen om ze later te bekijken.</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+        <em:locale>pt-BR</em:locale>
+        <em:name>Bookstack</em:name>
+        <em:description>Uma barra de lateral simples para coletar endereços para posterior navegação.</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+        <em:locale>zh-CN</em:locale>
+        <em:name>Bookstack</em:name>
+        <em:description>个简单的侧边栏，收集网址供以后浏览。</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+        <em:locale>sv-SE</em:locale>
+        <em:name>Bookstack</em:name>
+        <em:description>En enkel sidopanel för insamling av URL:er för senare påseende.</em:description>
+      </Description>
+    </em:localized>
+  </Description>
+</RDF>

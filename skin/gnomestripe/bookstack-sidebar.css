@@ -1,0 +1,44 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#stack-select-menu menuitem > image[src=""] {
+  background: url("moz-icon://stock/gtk-directory?size=menu") no-repeat;
+}
+
+#stack-select-menu {
+  list-style-image: url("moz-icon://stock/gtk-directory?size=menu");
+}
+
+#side-open-new {
+  list-style-image: url("chrome://browser/skin/Toolbar-small.png");
+  -moz-image-region: rect(0px, 64px, 16px, 48px);
+}
+
+#side-details-copy {
+  list-style-image: url("moz-icon://stock/gtk-copy?size=menu");
+}
+
+#side-details-cut {
+  list-style-image: url("moz-icon://stock/gtk-cut?size=menu");
+}
+
+#side-details-paste {
+  list-style-image: url("moz-icon://stock/gtk-paste?size=menu");
+}
+
+#side-reload {
+  list-style-image: url("moz-icon://stock/gtk-refresh?size=menu");
+}
+
+#side-move-menu-root .side-move-menu,
+#side-move-menu-root .side-move-menu-item {
+  list-style-image: url("moz-icon://stock/gtk-directory?size=menu");
+}
+
+#side-details-edit {
+  list-style-image: url("moz-icon://stock/gtk-properties?size=menu");
+}
+
+#side-purger {
+  list-style-image: url("moz-icon://stock/gtk-delete?size=menu");
+}
+

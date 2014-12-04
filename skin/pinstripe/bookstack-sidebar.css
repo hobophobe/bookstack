@@ -1,0 +1,10 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#stack-select-menu menuitem > image[src=""] {
+  background: url("chrome://global/skin/tree/folder.png") no-repeat;
+}
+
+#stack-select-menu {
+  list-style-image: url("chrome://global/skin/tree/folder.png");
+}
+

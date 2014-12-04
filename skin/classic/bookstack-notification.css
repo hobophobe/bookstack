@@ -1,0 +1,41 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+@-moz-document url(chrome://browser/content/browser.xul) {
+  #notification-popup-box[anchorid="bookstack-notification-icon"] > #bookstack-notification-icon {
+    display: -moz-box;
+  }
+
+  #bookstack-notification-icon {
+    list-style-image: url("chrome://bookstack/skin/bookstack-button-16.png");
+  }
+
+  .popup-notification-icon[popupid^="bookstack-notification-"] {
+    list-style-image: url("chrome://bookstack/skin/bookstack-icon-64.png");
+  }
+
+  #bookstack-notification-icon.bookstack-ping {
+    animation-name: feedbackping;
+    animation-duration: 0.35s;
+    animation-iteration-count: infinite;
+  }
+
+  @-moz-keyframes feedbackping {
+    from {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-7.5deg);
+    }
+    50% {
+      opacity: 0.85;
+    }
+    75% {
+      transform: rotate(7.5deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+  }
+}

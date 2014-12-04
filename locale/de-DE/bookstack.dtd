@@ -1,0 +1,31 @@
+<!ENTITY bookstack-side-menu.newtab "In neuem Tab öffnen">
+<!ENTITY bookstack-side-menu.newtab.ak "N">
+<!ENTITY bookstack-side-menu.thistab "In diesem Tab öffnen">
+<!ENTITY bookstack-side-menu.thistab.ak "O">
+<!ENTITY bookstack-side-menu.move "Verschieben in">
+<!ENTITY bookstack-side-menu.move.ak "V">
+
+<!ENTITY bookstack.clear.label "Leere Stapel">
+
+<!ENTITY bookstack.filters "Filter wählen">
+<!ENTITY bookstack.filter.select "Stapel wählen">
+<!ENTITY bookstack.filter.search "Stapel durchsuchen">
+<!ENTITY bookstack.filter.sort "Stapel sortieren">
+<!ENTITY bookstack.search "Diesen Stapel durchsuchen">
+<!ENTITY bookstack.search.empty "Suchen...">
+<!ENTITY bookstack.sort.label "Sortierrichtung">
+
+<!ENTITY settings.Focus.label "Seitenleiste fokussieren">
+<!ENTITY settings.cclr.label "Vor dem Leeren bestätigen">
+<!ENTITY settings.close.label "Schließe aktuelle Seite beim Hinzufügen">
+<!ENTITY settings.menuitems.content "Link-Kontextmenü &gt; Link auf Stapel legen">
+<!ENTITY settings.menuitems.tools "Menü &quot;Extras&quot; &gt; Bookstack">
+<!ENTITY settings.menuitems.current "Inhaltsbereich-Kontextmenü &gt; Diese Seite auf Stapel legen">
+<!ENTITY settings.menuitems.rcurrent "Inhaltsbereich-Kontextmenü &gt; Diese Seite vom Stapel entfernen">
+
+<!ENTITY settings.RItems.label "Bei Ansicht entfernen">
+<!ENTITY settings.cexit.label "Stapel beim Beenden leeren">
+<!ENTITY settings.midClick.label "Mittelklick zum Hinzufügen">
+<!ENTITY settings.mid.notify "Zeige Benachrichtigung">
+<!ENTITY settings.modKey.label "Benötigt Strg-Taste">
+

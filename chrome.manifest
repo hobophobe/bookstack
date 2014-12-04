@@ -1,0 +1,16 @@
+content   bookstack content/
+
+locale    bookstack en-US locale/en-US/
+locale    bookstack de-DE locale/de-DE/
+locale    bookstack fr-FR locale/fr-FR/
+locale    bookstack ja-JP locale/ja-JP/
+locale    bookstack nl-NL locale/nl-NL/
+locale    bookstack pt-BR locale/pt-BR/
+locale    bookstack zh-CN locale/zh-CN/
+locale    bookstack sv-SE locale/sv-SE/
+
+skin      bookstack     classic   skin/classic/
+skin      bookstack-img classic   skin/classic/img/
+skin      bookstack-os  classic   skin/gnomestripe/
+skin      bookstack-os  classic   skin/winstripe/ os=WINNT
+skin      bookstack-os  classic   skin/pinstripe/ os=Darwin

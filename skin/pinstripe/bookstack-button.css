@@ -1,0 +1,26 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+@-moz-document url(chrome://global/content/customizeToolbar.xul),
+               url(chrome://browser/content/browser.xul)
+{
+
+  #bookstack-side-button,
+  window:not([active="true"]) #bookstack-side-button,
+  toolbar[iconsize="small"] #bookstack-side-button {
+    list-style-image: url("chrome://bookstack-os/skin/bookstack-button.png");
+  }
+
+  #bookstack-side-button {
+    -moz-image-region: rect(0px, 20px, 20px, 0px);
+  }
+
+  #bookstack-side-button[checked="true"] {
+    -moz-image-region: rect(20px, 20px, 40px, 0px);
+  }
+
+  #bookstack-side-button[checked="true"]:hover:active {
+    -moz-image-region: rect(40px, 20px, 60px, 0px);
+  }
+
+}
+

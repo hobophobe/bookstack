@@ -1,0 +1,91 @@
+.select-stack-icon {
+  width: 16px;
+  height: 16px;
+}
+
+#bookstack-tree-view-children::-moz-tree-cell(removing) {
+  opacity: 0.75;
+}
+
+#bookstack-tree-view-children::-moz-tree-cell(leaf),
+#bookstack-tree-view-children::-moz-tree-image(leaf) {
+  cursor: pointer;
+}
+
+#bookstack-tree-view-children::-moz-tree-cell-text(leaf, hover) {
+  cursor: pointer;
+  text-decoration: underline;
+}
+#bookstack-tree-view-children::-moz-tree-cell(separator) {
+  cursor: default;
+}
+
+#bookstack-tree-view
+{
+  margin: 0;
+  padding: 0;
+}
+
+treechildren::-moz-tree-row,
+treechildren::-moz-tree-cell {
+  left: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+treechildren::-moz-tree-twisty {
+  display: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#stack-side-toolbar toolbarbutton {
+  -moz-user-focus: normal;
+}
+
+/* SIDEBAR ICONS */
+
+/* Thanks to Mark James - http://www.famfamfam.com/lab/icons/silk/
+ * for these awesome icons! */
+
+#stack-side-toolbar > toolbarbutton {
+  list-style-image: url("chrome://bookstack/skin/toolbar.png");
+}
+
+#citems {
+  -moz-image-region: rect(16px, 64px, 32px, 48px);
+}
+#cexit[checked="false"] {
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+#cexit[checked="true"] {
+  -moz-image-region: rect(16px, 16px, 32px, 0px);
+}
+#middl[checked="false"] {
+  -moz-image-region: rect(0px, 32px, 16px, 16px);
+}
+#middl[checked="true"] {
+  -moz-image-region: rect(16px, 32px, 32px, 16px);
+}
+#ritems[checked="false"] {
+  -moz-image-region: rect(0px, 48px, 16px, 32px);
+}
+#ritems[checked="true"] {
+  -moz-image-region: rect(16px, 48px, 32px, 32px);
+}
+#stack-filters {
+  -moz-image-region: rect(0px, 64px, 16px, 48px);
+}
+
+/* Limit height of selection dropdown */
+#select-stack {
+  max-height: 20em;
+  overflow-y: auto;
+}
+
+#bookstackPanel statusbar .statusbar-resizerpanel {
+  display: none;
+}
+
