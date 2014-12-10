@@ -4,6 +4,7 @@ Version 0.8.0
 
   * Reworked to be a restartless add-on (including minor fixes).
   * Moved preferences to add-on page.
+  * Moved the project to github. Added a readme.md for that.
 
 =============
 Version 0.7.5

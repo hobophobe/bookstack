@@ -8,7 +8,7 @@
 
     <em:name>Bookstack</em:name>
     <em:description>A simple sidebar to collect URLs for later browsing.</em:description>
-    <em:homepageURL>http://code.google.com/p/bookstack/</em:homepageURL>
+    <em:homepageURL>https://github.com/hobophobe/bookstack/wiki</em:homepageURL>
 
     <em:optionsURL>chrome://bookstack/content/bookstack-Settings.xul</em:optionsURL>
     <em:optionsType>2</em:optionsType>
