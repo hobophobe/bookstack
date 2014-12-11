@@ -348,7 +348,8 @@ if (typeof bookstackSidebar === 'undefined') {
     // this and the next function work together to create the sidebar context
     // menu's list of folders for the 'move to' submenu.
     fillFolderMenu: function (aEvent) {
-      if (aEvent.eventPhase !== aEvent.AT_TARGET) {
+      if (aEvent.eventPhase !== aEvent.AT_TARGET ||
+          aEvent.target.parentNode.disabled) {
         return;
       }
       // The target to be moved upon a destination's selection
@@ -359,6 +360,7 @@ if (typeof bookstackSidebar === 'undefined') {
           lastFolder = this.getLastFolder(),
           lastMenuName,
           folderNode;
+
       // clean out any existing nodes from the menu
       while (menuRoot.hasChildNodes()) {
         menuRoot.removeChild(menuRoot.firstChild);
@@ -676,6 +678,10 @@ if (typeof bookstackSidebar === 'undefined') {
           nodes = bookstackSidebar.selectionNodeArray(tree),
           commands = ['copy', 'cut', 'paste', 'delete', 'show:info', 'reload'];
       if (!nodes[0]) {
+        commands.forEach(aCommand => {
+          let node = document.getElementById('stackwrap_placesCmd_' + aCommand);
+          node.setAttribute('disabled', 'true');
+        });
         return;
       }
       function updateCommand(aCommand) {
@@ -687,11 +693,7 @@ if (typeof bookstackSidebar === 'undefined') {
           enabled = controller.isCommandEnabled('placesCmd_' + aCommand);
         }
         if (node) {
-          if (enabled) {
-            node.removeAttribute('disabled');
-          } else {
-            node.setAttribute('disabled', "true");
-          }
+          node.setAttribute('disabled', enabled ? 'false' : 'true');
         }
       }
       commands.forEach(updateCommand);
@@ -705,27 +707,20 @@ if (typeof bookstackSidebar === 'undefined') {
       }
 
       var tree = bookstackSidebar.bookstackTree,
-          multiselect = tree.view.selection.count > 1,
+          selectCount = tree.view.selection.count,
+          noSelect = selectCount == 0,
+          multiSelect = selectCount > 1,
           nodes = bookstackSidebar.selectionNodeArray(tree),
           allSeparators = this.allSeparators(nodes),
           ids = bookstackSidebar.selectionBMIdArray(tree),
-          cantEdit = multiselect || allSeparators,
           thisTab = document.getElementById('side-open-this'),
           newTab = document.getElementById('side-open-new'),
-          editItem = document.getElementById('side-details-edit'),
-          reloadItem = document.getElementById('side-reload');
+          moveItem = document.getElementById('side-move-menu-root');
 
       // Once again... need setTimeout for gods know why...
-      window.setTimeout(function() {
-        editItem.disabled = multiselect || allSeparators;
-      }, 0);
-      thisTab.disabled = multiselect || allSeparators;
-      newTab.disabled = allSeparators;
-      reloadItem.disabled = true;
-
-      if (!multiselect && !allSeparators && ids[0]) {
-        this.enableForLivemark(ids[0], reloadItem);
-      }
+      moveItem.disabled = noSelect;
+      thisTab.disabled = noSelect || multiSelect || allSeparators;
+      newTab.disabled = noSelect || allSeparators;
     },
 
     enableForLivemark: function (aId, aItem) {
