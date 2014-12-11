@@ -49,7 +49,8 @@ if (typeof bookstackSidebar === 'undefined') {
     init: function () {
       this.bookstackTree = document.getElementById('bookstack-tree-view');
       this.bookstackTree.place = this.getTreePlace();
-      if (this.bookstackTree.view.selection.count === 0) {
+      if (this.bookstackTree.view.rowCount &&
+          this.bookstackTree.view.selection.count === 0) {
         this.bookstackTree.view.selection.select(0);
       }
       this.bookstackTree.focus();
