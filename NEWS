@@ -1,4 +1,11 @@
 =============
+Version 0.8.2
+=============
+
+  * Switch to SidebarUI from deprecated toggleSidebar()
+  *
+
+=============
 Version 0.8.1
 =============
 

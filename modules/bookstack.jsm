@@ -382,7 +382,8 @@ var stack,
         bc.setAttribute('sidebarurl',
                         "chrome://bookstack/content/bookstack-Sidebar.xul");
         bc.setAttribute('sidebartitle', this.getString('bookstack-title'));
-        bc.setAttribute('oncommand', "toggleSidebar('viewBookstackSidebar');");
+        bc.setAttribute('oncommand',
+                        "SidebarUI.toggle('viewBookstackSidebar');");
         bcset.appendChild(bc);
       }
 
@@ -395,7 +396,7 @@ var stack,
       let sidebar = aDoc.getElementById('sidebar-box');
       if (!sidebar.hidden &&
           sidebar.getAttribute('sidebarcommand') == 'viewBookstackSidebar') {
-        aDoc.defaultView.toggleSidebar();
+        aDoc.defaultView.SidebarUI.toggle();
       }
       let keyset = aDoc.getElementById('mainKeyset'),
           bcset = aDoc.getElementById('mainBroadcasterSet'),
@@ -481,7 +482,7 @@ var stack,
               return;
             }
             let win = bookstack.serv.getWindow();
-            win.document.defaultView.toggleSidebar('viewBookstackSidebar');
+            win.document.defaultView.SidebarUI.toggle('viewBookstackSidebar');
           },
           onCreated: function(aNode) {
             aNode.addEventListener('dragover',
