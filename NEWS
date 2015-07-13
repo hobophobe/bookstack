@@ -3,7 +3,7 @@ Version 0.8.2
 =============
 
   * Switch to SidebarUI from deprecated toggleSidebar()
-  *
+  * Fix some unknowingly illegal destructured assignment forms
 
 =============
 Version 0.8.1

@@ -38,9 +38,9 @@ var stack,
       BMSVC, bookstack,
       CustomizableUI, Services;
 
-  ({Services}) = Cu.import("resource://gre/modules/Services.jsm", null);
-  ({CustomizableUI}) = Cu.import("resource:///modules/CustomizableUI.jsm",
-                                 null);
+  ({Services} = Cu.import("resource://gre/modules/Services.jsm", null));
+  ({CustomizableUI} = Cu.import("resource:///modules/CustomizableUI.jsm",
+                                null));
 
   if (typeof PlacesUtils === 'undefined') {
     try {

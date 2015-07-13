@@ -226,8 +226,8 @@ function setUCharPref(prefName,text,branch) { // Unicode setCharPref
 }
 
 var Services;
-({Services}) = Components.utils.import("resource://gre/modules/Services.jsm",
-                                       null);
+({Services} = Components.utils.import("resource://gre/modules/Services.jsm",
+                                      null));
 Services.scriptloader.loadSubScript(
   "resource://bookstack/content/defaultPrefs.js", { pref: setDefaultPref });
 
