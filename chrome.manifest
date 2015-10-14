@@ -11,6 +11,6 @@ locale    bookstack sv-SE locale/sv-SE/
 
 skin      bookstack     classic   skin/classic/
 skin      bookstack-img classic   skin/classic/img/
-skin      bookstack-os  classic   skin/gnomestripe/
-skin      bookstack-os  classic   skin/winstripe/ os=WINNT
-skin      bookstack-os  classic   skin/pinstripe/ os=Darwin
+skin      bookstack-os  classic   skin/linux/
+skin      bookstack-os  classic   skin/windows/ os=WINNT
+skin      bookstack-os  classic   skin/osx/ os=Darwin
