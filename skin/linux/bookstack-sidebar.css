@@ -1,7 +1,7 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-#stack-select-menu menuitem > image[src=""] {
-  background: url("moz-icon://stock/gtk-directory?size=menu") no-repeat;
+#stack-select-menu menuitem image {
+  list-style-image: url("moz-icon://stock/gtk-directory?size=menu");
 }
 
 #stack-select-menu {

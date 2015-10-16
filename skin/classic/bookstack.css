@@ -3,6 +3,10 @@
   height: 16px;
 }
 
+#stack-select-menu menuitem label.menu-iconic-text {
+  display: none;
+}
+
 #bookstack-tree-view-children::-moz-tree-cell(removing) {
   opacity: 0.75;
 }
@@ -20,8 +24,7 @@
   cursor: default;
 }
 
-#bookstack-tree-view
-{
+#bookstack-tree-view {
   margin: 0;
   padding: 0;
 }

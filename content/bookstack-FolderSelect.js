@@ -86,6 +86,7 @@ var bookstack, bookstackSidebar;
           element,
           label,
           image;
+
       for (i = 0; i < folderNode.childCount; i += 1) {
         childNode = folderNode.getChild(i);
         type = childNode.type;
