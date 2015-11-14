@@ -4,7 +4,8 @@ Version 0.8.3
 
   * Fix stack selection menu display issue
   * Fix e10s handling of click events for adding items
-
+  * Fix showing bookmark properties (editing) a newly-created bookmark
+    via click event
 
 =============
 Version 0.8.2

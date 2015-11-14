@@ -1213,18 +1213,41 @@ var stack,
     // Wrapper for the built-in bookmark editor dialog.
     properties: function (aItemId, aType) {
       aItemId = parseInt(aItemId, 10);
-      if (isNaN(aItemId)) {
+      var node = bookstack.stack.getNodeForId(aItemId);
+      if (isNaN(aItemId) || !node) {
         return;
       }
       var info = {
         action: 'edit',
         type: aType,
-        itemId: aItemId
+        itemId: aItemId,
+        node: node
       };
       let win = bookstack.serv.getWindow(),
           doc = win.document;
       //FIXME show the whole dialog?
       win.PlacesUIUtils.showBookmarkDialog(info, doc.defaultView);
+    },
+
+    getNodeForId: function (aItemId) {
+      var folderNode,
+          i,
+          childNode,
+          type,
+          empty = true,
+          folder = this.getShelf();
+      folderNode = PlacesUtils.getFolderContents(folder, false, false).root;
+      for (i = 0; i < folderNode.childCount; i += 1) {
+        childNode = folderNode.getChild(i);
+        type = childNode.type;
+        if (type === folderNode.RESULT_TYPE_URI && childNode &&
+            childNode.itemId == aItemId) {
+          break;
+        }
+        childNode = null;
+      }
+      folderNode.containerOpen = false;
+      return childNode;
     },
 
     // Add the specified URL as a new item in the stack.
