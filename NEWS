@@ -1,4 +1,12 @@
 =============
+Version 0.8.3
+=============
+
+  * Fix stack selection menu display issue
+  * Fix e10s handling of click events for adding items
+
+
+=============
 Version 0.8.2
 =============
 

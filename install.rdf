@@ -18,9 +18,9 @@
     <em:bootstrap>true</em:bootstrap>
 <!--
     FIXME enable when everything works.
-    Currently that's just the middle-click listener AFAIK
+    Currently that's just the middle-click listener AFAIK -->
 
-    <em:multiprocessCompatible>true</em:multiprocessCompatible> -->
+    <em:multiprocessCompatible>true</em:multiprocessCompatible>
 
     <em:targetApplication>
       <Description>

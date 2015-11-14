@@ -86,9 +86,6 @@ var stack,
       self.prefListenerSet = new bookstack.pref.PrefListener(
         function (aBranch, aName) {
           switch (aName) {
-            case 'stack_middleclick':
-              self.toggleMiddleClickListener();
-              break;
             case 'buttonupdate':
               self.fromCommandLine();
               break;
@@ -298,10 +295,11 @@ var stack,
         stack.addStylesForWindow(aWin);
         stack.addToolbarButton(doc);
         stack.addNoteBox(doc);
-        stack.toggleMiddleClickListenerForWindow(aWin);
         stack.addTabMenuItems(doc);
         stack.addContextMenuItems(doc);
         stack.addToolMenuItems(doc);
+        stack.listenToFrames(aWin);
+        stack.loadFS(aWin);
         stack.registerBMO(stack.notificationBMObserver);
         stack.watchBookmarks();
       },
@@ -319,10 +317,11 @@ var stack,
         stack.removeStylesForWindow(aWin);
         stack.removeToolbarButton(doc);
         stack.removeNoteBox(doc);
-        stack.toggleMiddleClickListenerForWindow(aWin, true);
         stack.removeTabMenuItems(doc);
         stack.removeContextMenuItems(doc);
         stack.removeToolMenuItems(doc);
+        stack.unlistenToFrames(aWin);
+        stack.unloadFS(aWin);
         stack.unregisterBMO(stack.notificationBMObserver);
         stack.unwatchBookmarks();
         aWin.bookstack = null;
@@ -505,30 +504,35 @@ var stack,
       this.defuseSidebar(aDoc);
     },
 
+
+    // Frame/Chrome Message Handling (replaces middleclick handler/toggle)
+
+    bookstackNS: "bookstack@{3dba5b22-2e1a-11dc-8314-0800200c9a66}",
+
+    listenToFrames: function (aWin) {
+      let mm = aWin.messageManager;
+      mm.addMessageListener(bookstack.stack.bookstackNS + ":add",
+                            bookstack.stack.addFromMessage, false);
+    },
+    unlistenToFrames: function (aWin) {
+      let mm = aWin.messageManager;
+      mm.removeMessageListener(bookstack.stack.bookstackNS + ":add",
+                               bookstack.stack.addFromMessage);
+    },
+
+    loadFS: function (aWin) {
+      let mm = aWin.messageManager;
+      mm.loadFrameScript("chrome://bookstack/content/frame.js", true);
+    },
+
+    unloadFS: function (aWin) {
+      let mm = aWin.messageManager;
+      mm.removeDelayedFrameScript("chrome://bookstack/content/frame.js");
+      mm.broadcastAsyncMessage(bookstack.stack.bookstackNS + ":unload");
+    },
+
+
     // Togglers
-
-    // Changes whether middle clicks on links are listened.
-    toggleMiddleClickListenerForWindow: function (aWin, aForceRemove) {
-      let turnOn = bookstack.pref.STACK_MIDCLICK.value();
-      var action = aWin.removeEventListener;
-      if (turnOn && !aForceRemove) {
-        action = aWin.addEventListener;
-      }
-      action('click', bookstack.stack.usurpMiddleClick, true);
-    },
-
-    // Changes whether middle clicks on links are listened.
-    toggleMiddleClickListener: function (aShutdown) {
-      let turnOn = bookstack.pref.STACK_MIDCLICK.value() && !aShutdown;
-      bookstack.stack.forEachOpenWindow(function(aWin) {
-        var action = aWin.removeEventListener;
-        if (turnOn) {
-          action = aWin.addEventListener;
-        }
-        action('click', bookstack.stack.usurpMiddleClick, true);
-      });
-    },
-
 
     // Determines visibility of tab context menu items based on count/context.
     toggleStackItems: function (aEvent) {
@@ -572,63 +576,8 @@ var stack,
         !bookstack.pref.STACK_MIDCLICK.value());
     },
 
-    // Called by listener, to add links via clicks.
-    // FIXME in non-shim compatibility mode this handler will fail under e10s
-    usurpMiddleClick: function (aEvent) {
-      var target = aEvent.target,
-          win = bookstack.serv.getTopWindow(target.ownerDocument.defaultView),
-          linkNode,
-          isModified = aEvent.ctrlKey || aEvent.metaKey,
-          parent,
-          text,
-          newBookmark;
-      if (aEvent.button !== 1 || !bookstack.pref.STACK_MIDCLICK.value() ||
-         (!isModified && bookstack.pref.STACK_MODKEY.value())) {
-        return false;
-      }
-      if (bookstack.stack.isALink(target)) {
-        if (target.hasAttribute('href')) {
-          linkNode = target;
-        }
-        parent = target.parentNode;
-        while (parent) {
-          if (bookstack.stack.isALink(parent) &&
-              parent.hasAttribute('href')) {
-            linkNode = parent;
-          }
-          parent = parent.parentNode;
-        }
-      } else {
-        linkNode = aEvent.originalTarget;
-        while (linkNode && !(linkNode instanceof win.HTMLAnchorElement)) {
-          linkNode = linkNode.parentNode;
-        }
-      }
-      // <a> cannot be nested.  So if we find an anchor without an
-      // href, there is no useful <a> around the target
-      if (linkNode && linkNode.hasAttribute('href')) {
-        text = win.gatherTextUnder(linkNode);
-        if (!text || !text.match(/\S/)) {
-          text = linkNode.getAttribute('title');
-        }
-        if (!text || !text.match(/\S/)) {
-          text = linkNode.getAttribute('alt');
-        }
-        if (!text || !text.match(/\S/)) {
-          text = linkNode.linkURL;
-        }
-        newBookmark = bookstack.stack.onAddToStackIndex({
-          url: linkNode.href,
-          title: text,
-          edit: aEvent.shiftKey
-        });
-        aEvent.preventDefault();
-        aEvent.stopPropagation();
-        if (newBookmark) {
-          return true;
-        }
-      }
-      return false;
+    addFromMessage: function (aMessage) {
+      bookstack.stack.onAddToStackIndex(aMessage.data);
     },
 
     // Visibility of context menu items based on preferences.
@@ -674,14 +623,6 @@ var stack,
         }
         bookstack.pref.STACK_CMDLINE_UPDATE.persist(false);
       }
-    },
-
-    // Tests node for being appropriate target (Anchor, Area, Link)
-    isALink: function (aNode) {
-      let win = bookstack.serv.getTopWindow(aNode.ownerGlobal);
-      return (aNode instanceof win.HTMLAnchorElement ||
-              aNode instanceof win.HTMLAreaElement ||
-              aNode instanceof win.HTMLLinkElement);
     },
 
     // Tab context menu: Add the current tab to stack.
